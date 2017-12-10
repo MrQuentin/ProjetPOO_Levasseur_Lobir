@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://www.w3.org/2001/XInclude" fx:controller="app.controllers.CaesarController">
+    <Label fx:id="lblText" text="Helllo Caesar" />
+    <Button fx:id="btnBarTab" onAction="#vigenereEncrypt" text="Change text"/>
+</VBox>

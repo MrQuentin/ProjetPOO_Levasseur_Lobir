@@ -1,10 +1,7 @@
-package Cryptage;
-
-import com.sun.org.apache.xerces.internal.xs.StringList;
+package app.crypting;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,8 +22,8 @@ public class Vigenere {
 	private Vigenere(){}
 
 	/**
-	 * Generate an instance of Vigenere if not already exist and fill the Code and Decode tables
-	 * @return Return an instance of Vigenere
+	 * Generate an instance of app.crypting.Vigenere if not already exist and fill the Code and Decode tables
+	 * @return Return an instance of app.crypting.Vigenere
 	 */
 	public static Vigenere getInstance(){
 		if(instance == null){
@@ -91,7 +88,7 @@ public class Vigenere {
 	}
 
 	/**
-	 * Encrypt the given string text according to the Vigenere algorythm with the key key
+	 * Encrypt the given string text according to the app.crypting.Vigenere algorythm with the key key
 	 * @param text Test to encrypt as a String
 	 * @param key Encryption key as a String
 	 * @return The Encrypted text as a String
@@ -114,7 +111,7 @@ public class Vigenere {
 			} else {
 			    //we test if the character of the key is a letter else, we go to the next character
 				while(!Character.isLetter(cryptkey.charAt(keyindex%cryptkey.length()))){keyindex++;}
-				//we change the letter with the crypting table according to the letter of the text and the letter of the key
+				//we change the letter with the app.crypting table according to the letter of the text and the letter of the key
 				res += cryptingtable.get(Character.toString(capitalizedText.charAt(i))).get(Character.toString(cryptkey.charAt((keyindex)%cryptkey.length())));
 				//we go to the next charactere
 				keyindex++;
@@ -125,7 +122,7 @@ public class Vigenere {
 	}
 
 	/**
-	 * Decrypt the given text text according to the Vigenere algorythm with the encryption key key
+	 * Decrypt the given text text according to the app.crypting.Vigenere algorythm with the encryption key key
 	 * @param text Text to Decrypt as a String
 	 * @param key Encryption key as a String
 	 * @return The Decrypted text as a String
@@ -157,7 +154,7 @@ public class Vigenere {
 	}
 
     /**
-     * Encrypt the file at the given path according to the Vigenere algorythm with the key key
+     * Encrypt the file at the given path according to the app.crypting.Vigenere algorythm with the key key
      * It generate a new file at the sale location with name XXXXCrypted.XXX for the file XXXX.XXX
      * @param path Path of the file to Encrypt as a String
      * @param key Encryption key as a String
@@ -201,7 +198,7 @@ public class Vigenere {
 	}
 
     /**
-     * Dencrypt the file at the given path according to the Vigenere algorythm with the key key
+     * Dencrypt the file at the given path according to the app.crypting.Vigenere algorythm with the key key
      * It generate a new file at the sale location with name XXXXDecrypted.XXX for the file XXXX.XXX
      * @param path Path of the file to Encrypt as a String
      * @param key Encryption key as a String
