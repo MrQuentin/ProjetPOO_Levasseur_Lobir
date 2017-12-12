@@ -9,11 +9,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author MrQuentinet
+ * @author MrQuentin
  */
+
+import static app.crypting.library.utils.*;
+
+
 public class Vigenere {
 
-	private static String[] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+	private static String[] alphabet = getAlphabet();
 	private static Map<String, Map<String,String>> cryptingtable;
 	private static Map<String, Map<String,String>> decryptingtable;
 
@@ -22,8 +26,8 @@ public class Vigenere {
 	private Vigenere(){}
 
 	/**
-	 * Generate an instance of app.crypting.Vigenere if not already exist and fill the Code and Decode tables
-	 * @return Return an instance of app.crypting.Vigenere
+	 * Generate an instance of Vigenere if not already exist and fill the Code and Decode tables
+	 * @return Return an instance of Vigenere
 	 */
 	public static Vigenere getInstance(){
 		if(instance == null){
@@ -50,46 +54,8 @@ public class Vigenere {
 	}
 
 	/**
-	 * Generate a Map witch associate a letter to the
-     * corresponding one depending on the row of the table
-	 * (A <-- B )
-	 * @param index An integer value witch correspond to the shift beetween letters
-	 * @return A Map associating letters with other letters according to the shift index
-	 */
-	private static Map<String, String> alphabetDecale(Integer index) {
-	    //create a map for the result
-		Map<String, String> res = new HashMap<String, String>();
-		//create pairs with a left shift of index value
-		for (int j = 0 ; j < alphabet.length ; j++) {
-			res.put(alphabet[j], alphabet[(j+index)%26]);
-		}
-		return res;
-	}
-
-    /**
-     * Generate a Map witch associate a letter to the
-     * corresponding one depending on the row of the table
-     * (A <-- Z )
-     * @param index An integer value witch correspond to the shift beetween letters
-     * @return A Map associating letters with other letters according to the shift index
-     */
-	private static Map<String, String> reversealphabetDecale(Integer index) {
-	    //crete the result map
-		Map<String, String> res = new HashMap<String, String>();
-		//create pairs with a right shift of index value
-		for (int j = 0 ; j < alphabet.length ; j++) {
-			if((j-index)<0){
-				res.put(alphabet[j], alphabet[(j - index + 26)]);
-			} else {
-				res.put(alphabet[j], alphabet[(j - index)]);
-			}
-		}
-		return res;
-	}
-
-	/**
-	 * Encrypt the given string text according to the app.crypting.Vigenere algorythm with the key key
-	 * @param text Test to encrypt as a String
+	 * Encrypt the given string text according to the Vigenere algorythm with the key key
+	 * @param text Text to encrypt as a String
 	 * @param key Encryption key as a String
 	 * @return The Encrypted text as a String
 	 */
@@ -122,7 +88,7 @@ public class Vigenere {
 	}
 
 	/**
-	 * Decrypt the given text text according to the app.crypting.Vigenere algorythm with the encryption key key
+	 * Decrypt the given text text according to the Vigenere algorythm with the encryption key key
 	 * @param text Text to Decrypt as a String
 	 * @param key Encryption key as a String
 	 * @return The Decrypted text as a String
@@ -154,8 +120,8 @@ public class Vigenere {
 	}
 
     /**
-     * Encrypt the file at the given path according to the app.crypting.Vigenere algorythm with the key key
-     * It generate a new file at the sale location with name XXXXCrypted.XXX for the file XXXX.XXX
+     * Encrypt the file at the given path according to the Vigenere algorythm with the key key
+     * It generate a new file at the same location with name XXXXCrypted.XXX for the file XXXX.XXX
      * @param path Path of the file to Encrypt as a String
      * @param key Encryption key as a String
      */
@@ -181,7 +147,7 @@ public class Vigenere {
 				}
 				br.close();
 				//create a new file at the same place to store the encrypted data
-				String newPath = path.substring(0,path.lastIndexOf('.'))+"Crypted"+path.substring(path.lastIndexOf('.'), path.length());
+				String newPath = path.substring(0,path.lastIndexOf('.'))+"VigenereCrypted"+path.substring(path.lastIndexOf('.'), path.length());
 				PrintWriter writer = new PrintWriter(newPath);
 				//we take avery lines encrypt them and write them in the file
 				for (int k = 0 ; k < stringList.size() ; k++ ){
@@ -198,7 +164,7 @@ public class Vigenere {
 	}
 
     /**
-     * Dencrypt the file at the given path according to the app.crypting.Vigenere algorythm with the key key
+     * Dencrypt the file at the given path according to the Vigenere algorythm with the key key
      * It generate a new file at the sale location with name XXXXDecrypted.XXX for the file XXXX.XXX
      * @param path Path of the file to Encrypt as a String
      * @param key Encryption key as a String
@@ -225,7 +191,7 @@ public class Vigenere {
 				}
 				br.close();
                 //create a new file at the same place to store the decrypted data
-				String newPath = path.substring(0,path.lastIndexOf('.'))+"Decrypted"+path.substring(path.lastIndexOf('.'), path.length());
+				String newPath = path.substring(0,path.lastIndexOf('.'))+"VigenereDecrypted"+path.substring(path.lastIndexOf('.'), path.length());
 				PrintWriter writer = new PrintWriter(newPath);
 				for (int i = 0 ; i < stringList.size() ; i++ ){
                     //we take avery lines decrypt them and write them in the file
@@ -240,15 +206,4 @@ public class Vigenere {
 		}
         System.out.println ("File Decrypted !");
     }
-
-	/**
-	 * Remove every accent from chracteres of a string and put it too upper case
-	 * @param s the string in witch we want to remove accents
-	 * @return the string without accents
-	 */
-	private static String stripAccentsToUpperCase(String s)	{
-		s = Normalizer.normalize(s, Normalizer.Form.NFD);
-		s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
-		return s.toUpperCase();
-	}
 }

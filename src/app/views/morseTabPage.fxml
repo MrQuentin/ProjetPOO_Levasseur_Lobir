@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.MorseController">
+    <children>
+        <Label layoutX="258.0" layoutY="6.0" text="Méthode Morse" AnchorPane.topAnchor="6.0" />
+        <TextArea fx:id="morseInputArea" layoutX="14.0" layoutY="61.0" prefHeight="289.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="395.0" AnchorPane.topAnchor="61.0" />
+        <Label layoutX="4.0" layoutY="44.0" prefHeight="17.0" prefWidth="67.0" text="Source Text" />
+        <TextArea fx:id="morseOutputArea" layoutX="376.0" layoutY="44.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="395.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="61.0" />
+        <Label layoutX="16.0" layoutY="365.0" text="Source File :" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="5.0" />
+        <Button layoutX="272.0" layoutY="169.0" mnemonicParsing="false" onAction="#morseEncrypt" text="Encrypt" textAlignment="CENTER" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="272.0" AnchorPane.topAnchor="170.0" />
+        <Button layoutX="271.0" layoutY="203.0" mnemonicParsing="false" onAction="#morseDecrypt" text="Decrypt" AnchorPane.bottomAnchor="170.0" />
+        <Label layoutX="395.0" layoutY="48.0" text="Output Text" AnchorPane.topAnchor="44.0" />
+        <Label fx:id="morseMessageLabel" layoutX="172.0" layoutY="365.0" prefHeight="17.0" prefWidth="215.0" /><!--message label-->
+        <Button fx:id="morseChooseFileBtn" layoutX="79.0" layoutY="361.0" mnemonicParsing="false" onAction="#chooseAFile" text="Choose a File" />
+    </children>
+</AnchorPane>

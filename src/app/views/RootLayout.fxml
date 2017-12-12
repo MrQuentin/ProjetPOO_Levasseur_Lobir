@@ -5,12 +5,15 @@
 <?import javafx.scene.control.TabPane?>
 <TabPane fx:id="tabPane" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" >
    <tabs>
-      <Tab closable="false" text="Vigenere" >
+       <Tab closable="false" text="Vigenere" >
       			<fx:include fx:id="vigenereTabPage" source="vigenereTabPage.fxml"/>
-      </Tab>
-      <Tab closable="false" text="César">
+       </Tab>
+       <Tab closable="false" text="César">
       			<fx:include fx:id="cesarTabPage" source="cesarTabPage.fxml"/>
-      </Tab>
+       </Tab>
+       <Tab closable="false" text="Morse">
+           <fx:include fx:id="morseTabPage" source="morseTabPage.fxml"/>
+       </Tab>
 
    </tabs>
 </TabPane>
