@@ -26,7 +26,7 @@ public class Morse {
 
     /**
      * Generate an instance of Morse if not already exist and fill the Code and Decode tables
-     * @return Return an instance of Vigenere
+     * @return Return an instance of Morse
      */
     public static Morse getInstance(){
         if(instance == null){
@@ -120,7 +120,7 @@ public class Morse {
                 //create a new file at the same place to store the encrypted data
                 String newPath = path.substring(0,path.lastIndexOf('.'))+"MorseCrypted"+path.substring(path.lastIndexOf('.'), path.length());
                 PrintWriter writer = new PrintWriter(newPath);
-                //we take avery lines encrypt them and write them in the file
+                //we take all the encrypted lines  and write them in the file
                 for (int k = 0 ; k < stringList.size() ; k++ ){
                     writer.println(morseCrypString(stringList.get(k)));
                 }
@@ -164,7 +164,7 @@ public class Morse {
                 String newPath = path.substring(0,path.lastIndexOf('.'))+"MorseDecrypted"+path.substring(path.lastIndexOf('.'), path.length());
                 PrintWriter writer = new PrintWriter(newPath);
                 for (int i = 0 ; i < stringList.size() ; i++ ){
-                    //we take avery lines decrypt them and write them in the file
+                    //we take every lines decrypt them and write them in the file
                     writer.println(morseDecryptString(stringList.get(i)));
                 }
                 writer.close();

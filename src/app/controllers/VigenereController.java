@@ -8,17 +8,25 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-
+/**
+ * This class allow us to call in the fxml graphic user interface
+ * all the Vigenere methods by using instances of the Vigenere class
+ */
 public class VigenereController {
 
     @FXML private TextArea vigenereInputArea;
     @FXML private TextArea vigenereOutputArea;
     @FXML private TextField vigenereKey;
-    @FXML private TextField vigenereSourceFile;
     @FXML private Label vigenereMessageLabel;
 
     private File selectedFile;
 
+
+    /**
+     * Encrypt a string or a file or both with the algorithm of vigenere, using a graphic user interface.
+     * this method is calling the vigenereCryptString and vigenereCryptFile methods
+     * this method is called in the veigenereTabPage.fxml and print the result in the GUI
+     */
     @FXML
     public void vigenereEncrypt() {
         vigenereMessageLabel.setText("");
@@ -34,7 +42,11 @@ public class VigenereController {
             vigenereMessageLabel.setText("You must insert a Key!");
         }
     }
-
+    /**
+     * Decrypt a string or a file or both with the algorithm of vigenere, using a graphic user interface.
+     * this method is calling the vigenereDecryptString and vigenereDeCryptFile methods
+     * this method is called in the veigenereTabPage.fxml and print the result in the GUI
+     */
     @FXML
     public void vigenereDecrypt() {
 
@@ -50,6 +62,10 @@ public class VigenereController {
             vigenereMessageLabel.setText("You must insert a Key!");
         }
     }
+
+    /**
+     * Allow the user to choose a text file in his storage through the GUI
+     */
 
     @FXML
     public void chooseAFile() {

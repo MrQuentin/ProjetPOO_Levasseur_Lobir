@@ -14,6 +14,9 @@
        <Tab closable="false" text="Morse">
            <fx:include fx:id="morseTabPage" source="morseTabPage.fxml"/>
        </Tab>
+       <Tab closable="false" text="Braille">
+           <fx:include source="brailleTabPage.fxml" fx:id="brailleTabPage"/>
+       </Tab>
 
    </tabs>
 </TabPane>

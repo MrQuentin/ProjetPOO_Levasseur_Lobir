@@ -12,10 +12,10 @@ public class utils {
 
     private static String[] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
     /**
-     * Generate a Map witch associate a letter to the
+     * Generate a Map which associate a letter to the
      * corresponding one depending on the row of the table
      * (A <-- B )
-     * @param index An integer value witch correspond to the shift beetween letters
+     * @param index An integer value which correspond to the shift beetween letters
      * @return A Map associating letters with other letters according to the shift index
      */
     public static Map<String, String> alphabetDecale(Integer index) {
@@ -29,10 +29,10 @@ public class utils {
     }
 
     /**
-     * Generate a Map witch associate a letter to the
+     * Generate a Map which associate a letter to the
      * corresponding one depending on the row of the table
      * (A <-- Z )
-     * @param index An integer value witch correspond to the shift beetween letters
+     * @param index An integer value which correspond to the shift beetween letters
      * @return A Map associating letters with other letters according to the shift index
      */
     public static Map<String, String> reversealphabetDecale(Integer index) {
@@ -59,8 +59,8 @@ public class utils {
     }
 
     /**
-     * Remove every accent from chracteres of a string and put it too upper case
-     * @param s the string in witch we want to remove accents
+     * Remove every accent from characters of a string and put it too upper case
+     * @param s the string in which we want to remove accents
      * @return the string without accents
      */
     public static String stripAccentsToUpperCase(String s)	{

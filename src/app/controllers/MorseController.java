@@ -8,7 +8,10 @@ import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-
+/**
+ * This class allow us to call in the fxml graphic user interface
+ * all the Morse methods by using instances of the Morse class
+ */
 public class MorseController {
 
     @FXML private TextArea morseInputArea;
@@ -16,7 +19,11 @@ public class MorseController {
     @FXML private Label morseMessageLabel;
 
     private File selectedFile;
-
+    /**
+     * Encrypt a string or a file or both with the morse code, using a graphic user interface.
+     * this method is calling the morseCrypString and morseCryptFile methods
+     * this method is called in the morseTabPage.fxml and print the result in the GUI
+     */
     @FXML
     public void morseEncrypt(ActionEvent actionEvent) {
         morseMessageLabel.setText("");
@@ -28,6 +35,11 @@ public class MorseController {
             morseMessageLabel.setText("Crypted file created at same location !");
         }
     }
+    /**
+     * Decrypt a string or a file or both with the morse code, using a graphic user interface.
+     * this method is calling the morseDecryptString and morseDeCryptFile methods
+     * this method is called in the morseTabPage.fxml and print the result in the GUI
+     */
 
     @FXML
     public void morseDecrypt(ActionEvent actionEvent) {
@@ -37,9 +49,12 @@ public class MorseController {
         }
         if ( selectedFile != null ) {
             Morse.getInstance().morseDeCryptFile(selectedFile.getPath());
-            morseMessageLabel.setText("Crypted file created at same location !");
+            morseMessageLabel.setText("Decrypted file created at same location !");
         }
     }
+    /**
+     * Allow the user to choose a text file in his storage through the GUI
+     */
 
     @FXML
     public void chooseAFile(ActionEvent actionEvent) {
